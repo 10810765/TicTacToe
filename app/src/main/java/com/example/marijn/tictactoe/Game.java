@@ -1,3 +1,5 @@
+package com.example.marijn.tictactoe;
+
 public class Game {
 
     final private int BOARD_SIZE = 3;
@@ -19,17 +21,15 @@ public class Game {
     }
 
     public TileState choose(int row, int column) {
-        TileState state = board[row][column];
-        switch (state) {
-            case BLANK:
-                if (playerOneTurn == true) {
-                    return TileState.CROSS;
-                } else {
-                    return TileState.CIRCLE;
-                }
-            case INVALID:
-                return TileState.INVALID;
-        }
-        return state;
+        if (board[row][column] != TileState.BLANK)
+            return TileState.INVALID;
+        if (board[row][column] == TileState.BLANK)
+            if (playerOneTurn == true) {
+                board[row][column] = TileState.CROSS;
+            } else {
+                board[row][column] = TileState.CIRCLE;
+            }
+        playerOneTurn = !playerOneTurn;
+        return board[row][column];
     }
 }
