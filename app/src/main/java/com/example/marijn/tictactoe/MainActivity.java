@@ -3,7 +3,6 @@ package com.example.marijn.tictactoe;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.GridLayout;
 import android.widget.TextView;
 
 
@@ -12,20 +11,34 @@ public class MainActivity extends AppCompatActivity {
 
     String[] allButtons = {"button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8", "button9"};
 
-
     Game game;
-
-    final private int BOARD_SIZE = 3;
-    private TileState[][] board;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         game = new Game();
+        if (savedInstanceState == null) {
+            return;
+        } else {
+            for (String button : allButtons) {
+                int resourceID = getResources().getIdentifier(button, "id", getPackageName());
+                TextView text = findViewById(resourceID);
+                text.setText(savedInstanceState.getString(button));
+            }
+        }
     }
 
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState); // always call super
+
+        // Save the state with outState
+        for (String button : allButtons) {
+            int resourceID = getResources().getIdentifier(button, "id", getPackageName());
+            TextView text = findViewById(resourceID);
+            outState.putString(button, text.getText().toString());
+        }
+    }
 
     public void tileClicked(View view) {
         int id = view.getId();

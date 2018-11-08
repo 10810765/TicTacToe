@@ -2,7 +2,9 @@ package com.example.marijn.tictactoe;
 
 import android.widget.TextView;
 
-public class Game {
+import java.io.Serializable;
+
+public class Game implements Serializable {
 
     final private int BOARD_SIZE = 3;
     private TileState[][] board;
