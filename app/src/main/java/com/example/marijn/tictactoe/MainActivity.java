@@ -3,12 +3,21 @@ package com.example.marijn.tictactoe;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 
 
 public class MainActivity extends AppCompatActivity {
+
+    String[] allButtons = {"button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8", "button9"};
+
+
     Game game;
+
+    final private int BOARD_SIZE = 3;
+    private TileState[][] board;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
         int id = view.getId();
 
         int row = 0;
-        int column= 0;
+        int column = 0;
 
-        switch(id){
+        switch (id) {
             case R.id.button1:
                 row = 0;
-                column  = 0;
+                column = 0;
                 break;
             case R.id.button2:
                 row = 0;
@@ -66,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         TileState state = game.choose(row, column);
 
         String draw = "";
-        switch(state) {
+        switch (state) {
             case CROSS:
                 draw = "X";
                 break;
@@ -81,9 +90,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     public void resetClicked(View view) {
-        game = new Game();
-}
 
+        game = new Game();
+
+        for (String btn : allButtons) {
+            int id = getResources().getIdentifier(btn, "id", getPackageName());
+            TextView btnText = findViewById(id);
+            btnText.setText("");
+        }
+    }
 }

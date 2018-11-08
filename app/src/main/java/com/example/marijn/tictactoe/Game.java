@@ -1,5 +1,7 @@
 package com.example.marijn.tictactoe;
 
+import android.widget.TextView;
+
 public class Game {
 
     final private int BOARD_SIZE = 3;
@@ -29,6 +31,8 @@ public class Game {
             } else {
                 board[row][column] = TileState.CIRCLE;
             }
+
+        movesPlayed += 1;
         playerOneTurn = !playerOneTurn;
         return board[row][column];
     }
