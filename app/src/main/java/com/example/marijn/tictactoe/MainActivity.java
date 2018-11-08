@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-
-
 public class MainActivity extends AppCompatActivity {
 
-    String[] allButtons = {"button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8", "button9"};
+    String[] allButtons = {"button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8", "button9", "messageDisplay"};
 
     Game game;
 
@@ -18,9 +16,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         game = new Game();
+
         if (savedInstanceState == null) {
             return;
         } else {
+            game.gameOver = savedInstanceState.getBoolean("gameEnd");
+
             for (String button : allButtons) {
                 int resourceID = getResources().getIdentifier(button, "id", getPackageName());
                 TextView text = findViewById(resourceID);
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState); // always call super
+        outState.putBoolean("gameEnd", game.gameOver);
 
         // Save the state with outState
         for (String button : allButtons) {
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tileClicked(View view) {
+        if (game.gameOver == true)
+            return;
+
         int id = view.getId();
 
         int row = 0;
@@ -98,10 +103,27 @@ public class MainActivity extends AppCompatActivity {
             case INVALID:
                 return;
         }
+
         TextView field = (TextView) view;
         field.setText(draw);
-    }
 
+        GameState message = game.won(row, column);
+        TextView editText = (TextView)findViewById(R.id.messageDisplay);
+
+        switch (message) {
+            case IN_PROGRESS:
+                break;
+            case PLAYER_ONE:
+                editText.setText("Player One has won!");
+                break;
+            case PLAYER_TWO:
+                editText.setText("Player Two has won!");
+                break;
+            case DRAW:
+                editText.setText("It's a draw!");
+                break;
+        }
+    }
 
     public void resetClicked(View view) {
 
