@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     String[] allButtons = {"button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8", "button9", "messageDisplay"};
@@ -17,10 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         game = new Game();
 
+
+
         if (savedInstanceState == null) {
             return;
         } else {
             game.gameOver = savedInstanceState.getBoolean("gameEnd");
+            game = (Game)savedInstanceState.getSerializable("game");
 
             for (String button : allButtons) {
                 int resourceID = getResources().getIdentifier(button, "id", getPackageName());
@@ -33,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState); // always call super
         outState.putBoolean("gameEnd", game.gameOver);
+        outState.putSerializable("game", game);
 
         // Save the state with outState
         for (String button : allButtons) {

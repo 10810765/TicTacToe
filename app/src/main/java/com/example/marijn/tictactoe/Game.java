@@ -13,8 +13,6 @@ import static com.example.marijn.tictactoe.TileState.INVALID;
 
 public class Game implements Serializable {
 
-
-
     final private int BOARD_SIZE = 3;
     private TileState[][] board;
 
