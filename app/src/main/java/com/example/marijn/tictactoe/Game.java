@@ -79,7 +79,6 @@ public class Game implements Serializable {
                 return PLAYER_TWO;
             }
         }
-
         if (movesPlayed == (BOARD_SIZE * BOARD_SIZE)) {
             gameOver = true;
             return DRAW;
