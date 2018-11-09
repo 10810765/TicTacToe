@@ -4,4 +4,4 @@ This course is part of the minor programming at the UvA.
 
 By: Marijn Meijering - 10810765
 
-![App Potatohead](https://github.com/10810765/TicTacToe/blob/master/doc/TicTacToe.png)
+![App TicTacToe](https://github.com/10810765/TicTacToe/blob/master/doc/TicTacToe.png)
