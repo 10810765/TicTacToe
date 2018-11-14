@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
 
     <android.support.v7.widget.GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:paddingLeft="18dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
         app:columnCount="3">
 
         <Button
@@ -96,22 +99,31 @@
 
     </android.support.v7.widget.GridLayout>
 
-    <TextView
-        android:id="@+id/messageDisplay"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:textAlignment="center"
-        android:textSize="25sp"/>
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/resetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="resetClicked"
-        android:text="Reset"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/messageDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="resetClicked"
+            android:text="Reset"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
 </LinearLayout>

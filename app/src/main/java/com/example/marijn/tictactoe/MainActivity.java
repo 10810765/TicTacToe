@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
 
     String[] allButtons = {"button1", "button2", "button3", "button4", "button5", "button6", "button7", "button8", "button9", "messageDisplay"};
@@ -18,8 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         game = new Game();
-
-
 
         if (savedInstanceState == null) {
             return;
