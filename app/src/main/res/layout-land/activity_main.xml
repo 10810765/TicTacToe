@@ -11,8 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingLeft="18dp"
+        android:paddingStart="18dp"
         android:paddingTop="6dp"
+        android:paddingEnd="8dp"
         android:paddingBottom="6dp"
         app:columnCount="3">
 
@@ -121,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:onClick="resetClicked"
-            android:text="Reset"
+            android:text="@string/new_game"
             android:textSize="20sp" />
 
     </LinearLayout>

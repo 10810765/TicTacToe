@@ -111,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="resetClicked"
-        android:text="Reset"
+        android:text="@string/new_game"
         android:textSize="20sp" />
 
 </LinearLayout>
