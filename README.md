@@ -4,4 +4,5 @@ This course is part of the minor programming at the UvA.
 
 By: Marijn Meijering - 10810765
 
-![App TicTacToe](https://github.com/10810765/TicTacToe/blob/master/doc/TicTacToe.png)
+![App1 TicTacToe](https://github.com/10810765/TicTacToe/blob/master/doc/TicTacToe_1.png)
+![App2 TicTacToe](https://github.com/10810765/TicTacToe/blob/master/doc/TicTacToe_2.png)
