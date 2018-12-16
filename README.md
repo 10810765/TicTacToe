@@ -7,7 +7,7 @@ This course is part of the minor programming at the UvA.
 By: Marijn Meijering - 10810765
 
 ### Extra's
-* Landscape view implemented added
+* Landscape view implemented
 * Game state will be kept upon rotating the screen
 * After a game has ended, tiles cannot be clicked anymore
 
